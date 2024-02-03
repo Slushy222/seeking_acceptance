@@ -5,6 +5,12 @@
     box-sizing: border-box;
 }
 
+.mainContent {
+    height: 1920px;
+    width: 1200px;
+    background-color: aqua;
+}
+
 #map-container {
     width: 100%;
     height: 100vh;
@@ -21,13 +27,13 @@
     /* transform: scale(0.2); */
 }
 
-#zoomInBtn {
-    top: 30%;
+#zoomInBtn, #zoomOutBtn {
+    z-index: 2;
     position: fixed;
 }
 
-#zoomOutBtn {
-    position: fixed;
+#zoomInBtn {
+    top: 30%;
 }
 
 /* TYPE TREATMENT */
