@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#map-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+}
+
+#map {
+    cursor: grab;
+    display: block;
+    margin: auto;
+    position: absolute;
+    z-index: 1;
+    /* transform: scale(0.2); */
+}
+
+#zoomInBtn {
+    top: 30%;
+    position: fixed;
+}
+
+#zoomOutBtn {
+    position: fixed;
+}
+
+/* TYPE TREATMENT */
+
