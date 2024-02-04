@@ -93,21 +93,6 @@ zoom.addEventListener("touchmove", function(e) {
         pointY = touch.clientY - start.y;
         updateTransform();
     }
-    else if (e.touches.length === 2) {
-        var touch1 = e.touches[0];
-        var touch2 = e.touches[1];
-        var currentDistance = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
-        scale *= currentDistance / initialDistance;
-        clampScale();
-        var midPointX = (touch1.clientX + touch2.clientX) / 2;
-        var midPointY = (touch1.clientY + touch2.clientY) / 2;
-        var maxX = Math.max(img.width * scale - viewportWidth, 0);
-        var maxY = Math.max(img.height * scale - viewportHeight, 0);
-        pointX = Math.min(Math.max(midPointX - (midPointX - pointX) * (scale / (scale * currentDistance / initialDistance)), -maxX), 0);
-        pointY = Math.min(Math.max(midPointY - (midPointY - pointY) * (scale / (scale * currentDistance / initialDistance)), -maxY), 0);
-        setTransform();
-        initialDistance = currentDistance;
-    }
 });
 
 zoom.addEventListener("wheel", function(e) {
@@ -134,4 +119,22 @@ zoom.addEventListener("wheel", function(e) {
 
     // Update scale and transform point
     updateTransform();
+    
+    // Pinch-to-zoom for touch devices
+    if (e.touches.length === 2) {
+        var touch1 = e.touches[0];
+        var touch2 = e.touches[1];
+        var currentDistance = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
+        var scaleDelta = currentDistance / initialDistance;
+        scale *= scaleDelta;
+        clampScale();
+        var midPointX = (touch1.clientX + touch2.clientX) / 2;
+        var midPointY = (touch1.clientY + touch2.clientY) / 2;
+        var maxX = Math.max(img.width * scale - viewportWidth, 0);
+        var maxY = Math.max(img.height * scale - viewportHeight, 0);
+        pointX = Math.min(Math.max(midPointX - (midPointX - pointX) * scaleDelta, -maxX), 0);
+        pointY = Math.min(Math.max(midPointY - (midPointY - pointY) * scaleDelta, -maxY), 0);
+        setTransform();
+        initialDistance = currentDistance;
+    }
 });
