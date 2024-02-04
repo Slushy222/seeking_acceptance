@@ -1,13 +1,14 @@
 var scale = 0.2,
-        panning = false,
-        pointX = 0,
-        pointY = 0,
-        start = { x: 0, y: 0 },
-        zoom = document.getElementById("zoom"),
-        img = document.getElementById("zoom-image"),
-        viewportWidth = zoom.offsetWidth,
-        viewportHeight = zoom.offsetHeight;
-    
+    panning = false,
+    pointX = 0,
+    pointY = 0,
+    start = { x: 0, y: 0 },
+    zoom = document.getElementById("zoom"),
+    img = document.getElementById("zoom-image"),
+    viewportWidth = zoom.offsetWidth,
+    viewportHeight = zoom.offsetHeight,
+    initialDistance = 0;
+
 img.onload = function() {
     // Set initial size of zoom div to match image
     zoom.style.width = img.width + "px";
@@ -20,22 +21,22 @@ img.onload = function() {
     // Initial alignment
     updateTransform();
 };
-    
+
 function setTransform() {
     zoom.style.transform = "translate(" + pointX + "px, " + pointY + "px) scale(" + scale + ")";
 }
-    
+
 function clampScale() {
     scale = Math.min(Math.max(scale, 0.2), 1);
 }
-    
+
 function clampTranslation() {
     var maxX = Math.max(img.width * scale - viewportWidth, 0);
     var maxY = Math.max(img.height * scale - viewportHeight, 0);
 
     // Clamp translation within limits
-    // pointX = Math.min(Math.max(pointX, -maxX), 0);
-    // pointY = Math.min(Math.max(pointY, -maxY), 0);
+    pointX = Math.min(Math.max(pointX, -maxX), 0);
+    pointY = Math.min(Math.max(pointY, -maxY), 0);
 
     // Update the transformation
     setTransform();
@@ -46,28 +47,35 @@ function updateTransform() {
     clampTranslation();
     setTransform();
 }
-    
+
 zoom.addEventListener("mousedown", function(e) {
     e.preventDefault();
     start = { x: e.clientX - pointX, y: e.clientY - pointY };
     panning = true;
 });
-    
+
 zoom.addEventListener("touchstart", function(e) {
     e.preventDefault();
-    var touch = e.touches[0];
-    start = { x: touch.clientX - pointX, y: touch.clientY - pointY };
-    panning = true;
+    if (e.touches.length === 2) {
+        var touch1 = e.touches[0];
+        var touch2 = e.touches[1];
+        initialDistance = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
+    }
+    else if (e.touches.length === 1) {
+        var touch = e.touches[0];
+        start = { x: touch.clientX - pointX, y: touch.clientY - pointY };
+        panning = true;
+    }
 });
-    
+
 zoom.addEventListener("mouseup", function(e) {
     panning = false;
 });
-    
+
 zoom.addEventListener("touchend", function(e) {
     panning = false;
 });
-    
+
 zoom.addEventListener("mousemove", function(e) {
     e.preventDefault();
     if (panning) {
@@ -76,7 +84,7 @@ zoom.addEventListener("mousemove", function(e) {
         updateTransform();
     }
 });
-    
+
 zoom.addEventListener("touchmove", function(e) {
     e.preventDefault();
     if (panning && e.touches.length === 1) {
@@ -85,8 +93,23 @@ zoom.addEventListener("touchmove", function(e) {
         pointY = touch.clientY - start.y;
         updateTransform();
     }
+    else if (e.touches.length === 2) {
+        var touch1 = e.touches[0];
+        var touch2 = e.touches[1];
+        var currentDistance = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
+        scale *= currentDistance / initialDistance;
+        clampScale();
+        var midPointX = (touch1.clientX + touch2.clientX) / 2;
+        var midPointY = (touch1.clientY + touch2.clientY) / 2;
+        var maxX = Math.max(img.width * scale - viewportWidth, 0);
+        var maxY = Math.max(img.height * scale - viewportHeight, 0);
+        pointX = Math.min(Math.max(midPointX - (midPointX - pointX) * (scale / (scale * currentDistance / initialDistance)), -maxX), 0);
+        pointY = Math.min(Math.max(midPointY - (midPointY - pointY) * (scale / (scale * currentDistance / initialDistance)), -maxY), 0);
+        setTransform();
+        initialDistance = currentDistance;
+    }
 });
-    
+
 zoom.addEventListener("wheel", function(e) {
     e.preventDefault();
     var xs = (e.clientX - pointX) / scale,
@@ -99,6 +122,9 @@ zoom.addEventListener("wheel", function(e) {
     } else {
         scale /= 1.2; // Zoom out
     }
+
+    // Clamp scale within limits
+    clampScale();
 
     // Adjust the transformation point
     var maxX = Math.max(img.width * scale - viewportWidth, 0);
