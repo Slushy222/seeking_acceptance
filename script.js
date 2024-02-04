@@ -1,130 +1,111 @@
-var drag = false;
-var offsetX, offsetY;
-var scale = 1;
-var maxScale = 50; // You can adjust this value as needed
-
-function startDrag(e) {
-    // determine event object
-    if (!e) {
-        var e = window.event;
-    }
-    if (e.preventDefault) e.preventDefault();
-
-    // Touch support: Check if the event is a touch event
-    var touch = e.touches ? e.touches[0] : e;
-
-    // IE uses srcElement, others use target
-    targ = e.target ? e.target : e.srcElement;
-
-    if (targ.className != 'dragme') {
-        return;
-    }
-    // calculate event X, Y coordinates
-    offsetX = touch.clientX;
-    offsetY = touch.clientY;
-
-    // assign default values for top and left properties
-    if (!targ.style.left) {
-        targ.style.left = '0px'
-    };
-    if (!targ.style.top) {
-        targ.style.top = '0px'
-    };
-
-    // calculate integer values for top and left 
-    // properties
-    coordX = parseInt(targ.style.left);
-    coordY = parseInt(targ.style.top);
-    drag = true;
-
-    // move div element
-    document.addEventListener('mousemove', dragDiv);
-    document.addEventListener('touchmove', dragDiv);
-    return false;
-
+var scale = 0.2,
+        panning = false,
+        pointX = 0,
+        pointY = 0,
+        start = { x: 0, y: 0 },
+        zoom = document.getElementById("zoom"),
+        img = document.getElementById("zoom-image"),
+        viewportWidth = zoom.offsetWidth,
+        viewportHeight = zoom.offsetHeight;
+    
+img.onload = function() {
+    // Set initial size of zoom div to match image
+    zoom.style.width = img.width + "px";
+    zoom.style.height = img.height + "px";
+    
+    // Calculate initial translation to center the zoom div
+    pointX = (viewportWidth - img.width * scale) / 50;
+    pointY = (viewportHeight - img.height * scale) / 50;
+    
+    // Initial alignment
+    updateTransform();
+};
+    
+function setTransform() {
+    zoom.style.transform = "translate(" + pointX + "px, " + pointY + "px) scale(" + scale + ")";
 }
-
-function dragDiv(e) {
-    // Touch support: Check if the event is a touch event
-    var touch = e.touches ? e.touches[0] : e;
-
-    if (!drag) {
-        return;
-    }
-    if (!e) {
-        var e = window.event
-    };
-    // move div element
-    var newX = coordX + touch.clientX - offsetX;
-    var newY = coordY + touch.clientY - offsetY;
-
-    // Calculate the boundaries based on the image size and viewport size
-    var imageWidth = targ.offsetWidth * scale;
-    var imageHeight = targ.offsetHeight * scale;
-    var viewportWidth = window.innerWidth;
-    var viewportHeight = window.innerHeight;
-
-    var maxX = Math.max(viewportWidth - imageWidth, 0);
-    var maxY = Math.max(viewportHeight - imageHeight, 0);
-
-    // Ensure the dragged element does not go past the viewport edges
-    newX = Math.min(Math.max(newX, -imageWidth + viewportWidth), maxX);
-    newY = Math.min(Math.max(newY, -imageHeight + viewportHeight), maxY);
-
-    targ.style.left = newX + 'px';
-    targ.style.top = newY + 'px';
-    return false;
+    
+function clampScale() {
+    scale = Math.min(Math.max(scale, 0.2), 1);
 }
+    
+function clampTranslation() {
+    var maxX = Math.max(img.width * scale - viewportWidth, 0);
+    var maxY = Math.max(img.height * scale - viewportHeight, 0);
 
-function stopDrag() {
-    drag = false;
-}
+    // Clamp translation within limits
+    // pointX = Math.min(Math.max(pointX, -maxX), 0);
+    // pointY = Math.min(Math.max(pointY, -maxY), 0);
 
-function zoomIn() {
-    if (scale < maxScale) {
-        scale += 5;
-        updateTransform();
-    }
-}
-
-function zoomOut() {
-    if (scale > 1) {
-        scale -= 5;
-        updateTransform();
-    }
+    // Update the transformation
+    setTransform();
 }
 
 function updateTransform() {
-    // Apply the scale transformation to the image
-    var image = document.getElementById('map');
-    var transformValue = 'scale(' + scale + ')';
-    image.style.transform = transformValue;
+    clampScale();
+    clampTranslation();
+    setTransform();
 }
+    
+zoom.addEventListener("mousedown", function(e) {
+    e.preventDefault();
+    start = { x: e.clientX - pointX, y: e.clientY - pointY };
+    panning = true;
+});
+    
+zoom.addEventListener("touchstart", function(e) {
+    e.preventDefault();
+    var touch = e.touches[0];
+    start = { x: touch.clientX - pointX, y: touch.clientY - pointY };
+    panning = true;
+});
+    
+zoom.addEventListener("mouseup", function(e) {
+    panning = false;
+});
+    
+zoom.addEventListener("touchend", function(e) {
+    panning = false;
+});
+    
+zoom.addEventListener("mousemove", function(e) {
+    e.preventDefault();
+    if (panning) {
+        pointX = e.clientX - start.x;
+        pointY = e.clientY - start.y;
+        updateTransform();
+    }
+});
+    
+zoom.addEventListener("touchmove", function(e) {
+    e.preventDefault();
+    if (panning && e.touches.length === 1) {
+        var touch = e.touches[0];
+        pointX = touch.clientX - start.x;
+        pointY = touch.clientY - start.y;
+        updateTransform();
+    }
+});
+    
+zoom.addEventListener("wheel", function(e) {
+    e.preventDefault();
+    var xs = (e.clientX - pointX) / scale,
+        ys = (e.clientY - pointY) / scale,
+        delta = (e.wheelDelta ? e.wheelDelta : -e.deltaY);
 
-window.onload = function() {
-    document.onmousedown = startDrag;
-    document.onmouseup = stopDrag;
+    // Adjust the scale based on the scroll direction
+    if (delta > 0) {
+        scale *= 1.2; // Zoom in
+    } else {
+        scale /= 1.2; // Zoom out
+    }
 
-    // Touch support: Add touchstart and touchend event listeners
-    document.addEventListener('touchstart', startDrag);
-    document.addEventListener('touchend', stopDrag);
+    // Adjust the transformation point
+    var maxX = Math.max(img.width * scale - viewportWidth, 0);
+    var maxY = Math.max(img.height * scale - viewportHeight, 0);
+    pointX = Math.min(Math.max(e.clientX - xs * scale, -maxX), 0);
+    pointY = Math.min(Math.max(e.clientY - ys * scale, -maxY), 0);
 
-    // Center the image initially
-    var image = document.getElementById('map');
-    var viewportWidth = window.innerWidth;
-    var viewportHeight = window.innerHeight;
-    var imageWidth = image.offsetWidth;
-    var imageHeight = image.offsetHeight;
-
-    var initialX = (viewportWidth - imageWidth) / 2;
-    var initialY = (viewportHeight - imageHeight) / 2;
-
-    image.style.left = initialX + 'px';
-    image.style.top = initialY + 'px';
-
-    // Add zoom buttons event listeners for both click and touch
-    document.getElementById('zoomInBtn').addEventListener('click', zoomIn);
-    document.getElementById('zoomOutBtn').addEventListener('click', zoomOut);
-    document.getElementById('zoomInBtn').addEventListener('touchstart', zoomIn);
-    document.getElementById('zoomOutBtn').addEventListener('touchstart', zoomOut);
-}
+    // Update scale and transform point
+    updateTransform();
+});
