@@ -2,7 +2,6 @@
     padding: 0;
     margin: 0;
     outline: 0;
-    overflow: hidden;
     box-sizing: border-box;
 }
 
@@ -19,15 +18,83 @@ html, body {
     transform-origin: 0px 0px;
     transform: scale(0.2) translate(0px, 0px);
     cursor: grab;
-    display: block;
+    display: block; 
+    z-index: 2;
 }
 
 .zoom_outer {
     width: 100vw;
     height: 100vh;
-    background-color: white;
 }
-/* div#zoom > img {
-    width: 100%;
-    height: auto;
-} */
+
+/* TYPE TREATMENT */
+
+nav {
+    background-color: transparent;
+    position: fixed;
+    z-index: 3;
+    margin-left: 100px;
+    margin-top: 70px;
+}
+
+ul {
+    text-decoration: none;
+}
+
+li {
+    position: relative;
+    display: inline;
+    text-align: left;
+    font-family: Helvetica, sans-serif;
+    font-style: normal;
+    margin-right: 30px;
+}
+
+#regNav {
+    color: black;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+#masthead {
+    color: rgb(42, 185, 149);
+    font-weight: bold;
+    font-size: 32px;
+}
+
+/* Styling links within #regNav */
+#regNav a:link,
+#regNav a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+/* Styling links within #masthead */
+#masthead a:link,
+#masthead a:visited {
+    text-decoration: none;
+    color: rgb(42, 185, 149);
+}
+
+@media screen and (max-width: 500px) {
+    #regNav {
+        color: black;
+        font-weight: 600;
+        font-size: 12px;
+    }
+    
+    #masthead {
+        color: rgb(42, 185, 149);
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    li {
+        margin-right: 10px;
+    }
+
+    nav {
+        margin-left: 40px;
+        margin-top: 30px;
+    }
+}
