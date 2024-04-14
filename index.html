@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>seeking acceptance</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta https-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="styles.css"/>
+        <link rel="icon" type="image/x-icon" href="markerFavicon.ico">
+    </head>
+    <body>
+        
+        <div class="mainContent">
+            
+            <div id="startingSplash">
+                <img style="pointer-events: none; user-select: none;" id="startingAccept" src="markersvg/acceptMarker.svg" alt="Accepting">
+                <img style="pointer-events: none; user-select: none;" id="startingUnknown" src="markersvg/unknownMarker.svg" alt="Unknown">
+                <img style="pointer-events: none; user-select: none;" id="startingNotAccept" src="markersvg/notAcceptMarker.svg" alt="Not Accepting">
+            </div>
+
+            <div class="hamburgerMenu">
+                <button id="button">
+                    <div id="icon"></div>
+                </button>
+            </div>
+
+            <div id="masthead">
+                <h1>seeking acceptance</h1>
+                <img style="pointer-events: none; user-select: none;" id="mastheadIcon" src="markersvg/mastheadIcon.svg" alt="marker">
+            </div>
+            
+            <div id="leftSideDrawer">
+                <nav id="topNav">
+                    <ul>
+                        <li id="aboutNav"><a>about</a></li>
+                        <li id="addNav"><a>add a marker</a></li>
+                        <li id="toolsNav"><a>access tools</a></li>
+                        <li id="indexNav"><a>index</a></li>
+                    </ul>
+                </nav>
+
+                <div id="drawerContainer">
+                    <section id="aboutContent">
+                        <p id="aboutBlock" style="user-select: text;">Christian ideologies continue to be a present wound for the queer community, 
+                            as these monolith structures render fear and hope to push out queer individuals; we are allowed, you are allowed within their walls. 
+                            For many LGBTQ+ individuals who grew up in the American South, 
+                            contemporary Christian teachings often estrange members of the queer community 
+                            turning toward the church for support. As the mapmaker, I have long assumed that 
+                            Christian churches would not accept those who would like to mend their relationships between 
+                            church and self. This map creates an interface for queer individuals to approach Christian churches, groups, 
+                            and religious-based greek life informed in order to stay safe within their communities. The classifications describe 
+                            acceptance from the perspective of churches through their doctrine, not as a survey of their communities.
+                            <br><br>Designed and created by <a href="https://www.taylorsampsonstudio.com/">Taylor Sampson.</a><br>
+                            Get in touch at <a href="mailto:seekingacceptance.map@gmail.com"><i>seekingacceptance.map@gmail.com</i></a>
+                            <br><br>Inspired by <a id="queeringthemap" href="https://www.queeringthemap.com/"><i>Queering the Map</i> by Lucas LaRochelle.</a>
+                        </p>
+
+                        <!-- insert map legend here -->
+                        <div id="acceptLegendContainer">
+                            <img style="pointer-events: none; user-select: none;" id="legendAccept" src="markersvg/acceptMarker.svg" alt="Accepting">
+                            <div id="legendText">    
+                                <p>accepting</p>
+                            </div>
+                        </div>
+
+                        <div id="notAcceptLegendContainer">
+                            <img style="pointer-events: none; user-select: none;" id="legendNotAccept" src="markersvg/notAcceptMarker.svg" alt="Not Accepting">
+                            <div id="legendText">
+                                <p>not accepting</p>
+                            </div>
+                        </div>
+
+                        <div id="unknownLegendContainer">
+                            <img style="pointer-events: none; user-select: none;" id="legendUnknown" src="markersvg/unknownMarker.svg" alt="Unknown">
+                            <div id="legendText">
+                                <p>unknown</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="addContent">
+                        <ul id="formInstructions">
+                            <li>
+                                <p>1. Search for a Church or Religious Institution.</p>
+                                <div id="locationField"></div>
+                            </li>
+                            
+                            <li><p>2. Select a condition.</p></li>
+                        </ul>
+                        
+                        
+                        <nav class="tabs">
+                            <div class="selector"></div>
+                            <a id= "acceptTab">accepting</a>
+                            <a id= "unknownTab">unknown</a>
+                            <a id= "notAcceptTab">not accepting</a>
+                        </nav>
+
+                        <button id="submitButton" type="submit" onclick="sendMarkerMail()">submit</button>
+                    </section>
+                    
+                    <section id="toolsContent">
+                        <div>
+                            <h3>marker visibility</h3>
+
+                        </div>
+
+                        <div>
+                            <h3>colorblind settings</h3>
+                            
+                        </div>
+                    </section>
+                    
+                    <section id="indexContent">
+                        
+                        <nav class="indexTabs">
+                            <div class="indexSelector"></div>
+                            <a id= "indexAcceptTab">accepting</a>
+                            <a id= "indexUnknownTab">unknown</a>
+                            <a id= "indexNotAcceptTab">not accepting</a>
+                        </nav>
+                        
+                        <div id="indexContainerAccept"></div>
+                        <div id="indexContainerUnknown"></div>
+                        <div id="indexContainerNotAccept"></div>
+                    </section>
+                </div>
+            </div>
+
+            <div id="map"></div>
+
+            
+            <!-- Script Below Referencing Google Maps -->
+            <script 
+                async defer src="https://maps.googleapis.com/maps/api/js?v=beta&key=AIzaSyD3DOM_4SUy6tZ4Sk7iHvRDilUCwTvpkYk&map_ids=c1c8b962b1f7d9e2&loading=async&callback=initMap&libraries=places" type="text/javascript">
+            </script>
+
+
+            <!-- EmailJS Reference -->
+            <script
+                src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+            </script>
+            
+            <script src="navscript.js"></script>
+            <script src="script.js"></script>
+            
+        </div>
+        
+    </body>
+
+</html>
