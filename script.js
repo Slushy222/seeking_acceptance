@@ -29,6 +29,13 @@ async function initMap() {
             'data-color': 'green'
         },
         {
+            locationName: 'Project Canterbury',
+            lat: 35.04654914085031, 
+            lng: -85.30147098386755,
+            address: '661 Douglas St, Chattanooga, TN',
+            'data-color': 'green'
+        },
+        {
             locationName: 'St. Paul\u{27}s Episcopal Church',
             lat: 35.04864577263504,
             lng: -85.31276169996222,
@@ -104,6 +111,69 @@ async function initMap() {
             address: '615 McCallie Ave, Chattanooga, TN',
             'data-color': 'red'
         },
+        {
+            locationName: 'First Presbyterian Church',
+            lat: 35.046004651789325,
+            lng: -85.30238007286094,
+            address: '554 McCallie Ave, Chattanooga, TN',
+            'data-color': 'red'
+        },
+        {
+            locationName: 'First Presbyterian Church Student Center',
+            lat: 35.046412924196716,
+            lng: -85.30235148030614,
+            address: '535 McCallie Ave, Chattanooga, TN',
+            'data-color': 'red'
+        },
+        {
+            locationName: 'First Presbyterian Church Student Center',
+            lat: 35.046412924196716,
+            lng: -85.30235148030614,
+            address: '535 McCallie Ave, Chattanooga, TN',
+            'data-color': 'red'
+        },
+        {
+            locationName: 'Renaissance Presbyterian Church',
+            lat: 35.043162300619656, 
+            lng: -85.31938207096209,
+            address: '1211 Boynton Dr, Chattanooga, TN',
+            'data-color': 'red'
+        },
+        {
+            locationName: 'Second Presbyterian Church of Chattanooga',
+            lat: 35.04812419063135,
+            lng: -85.31244628248216,
+            address: '700 Pine St, Chattanooga, TN 37402',
+            'data-color': 'red'
+        },
+        {
+            locationName: 'Cornerstone Presbyterian Church',
+            lat: 35.033579055873965,
+            lng: -85.31026419793912,
+            address: '1813 Long St, Chattanooga, TN',
+            'data-color': 'red'
+        },
+        {
+            locationName: 'Mosaic Fellowship',
+            lat: 35.025618400129694,
+            lng: -85.27760187430275,
+            address: '2099 E Main St, Chattanooga, TN',
+            'data-color': 'red'
+        },
+        {
+            locationName: 'Chattanooga New Life Seventh-day Adventist Church',
+            lat: 35.02564946260138,
+            lng: -85.27750894050095,
+            address: '2099 E Main St, Chattanooga, TN',
+            'data-color': 'red'
+        },
+        {
+            locationName: 'New Life SDA',
+            lat: 35.02528758407398,
+            lng:  -85.27737048810235,
+            address: '2099 E Main St, Chattanooga, TN',
+            'data-color': 'red'
+        },
     ];
     
     // ARRAY of UNKNOWN MARKERS
@@ -127,6 +197,13 @@ async function initMap() {
             lat: 35.04543972772856, 
             lng: -85.30709879808272,
             address: '149 E M L King Blvd, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'Hamlett Chapel Christian Methodist Episcopal Church',
+            lat: 35.0274092850168,
+            lng: -85.31552972396813,
+            address: '2512 Cowart St, Chattanooga, TN',
             'data-color': 'yellow'
         },
         
@@ -181,7 +258,8 @@ async function initMap() {
         marker1 = new google.maps.Marker({
             map: map,
             position: {lat: acceptMarkers[i]['lat'], lng: acceptMarkers[i]['lng']},
-            icon: acceptMarkerSVG
+            icon: acceptMarkerSVG,
+            zIndex: 9999
         });
 
         (function(marker1, i) {
@@ -209,7 +287,8 @@ async function initMap() {
         marker2 = new google.maps.Marker({
             map: map,
             position: {lat: notAcceptMarkers[i]['lat'], lng: notAcceptMarkers[i]['lng']},
-            icon: notAcceptMarkerSVG
+            icon: notAcceptMarkerSVG,
+            zIndex: 888
         });
 
         (function(marker2, i) {
@@ -237,7 +316,8 @@ async function initMap() {
         marker3 = new google.maps.Marker({
             map: map,
             position: {lat: unknownMarkers[i]['lat'], lng: unknownMarkers[i]['lng']},
-            icon: unknownMarkerSVG
+            icon: unknownMarkerSVG,
+            zIndex: 777
         });
 
         (function(marker3, i) {
