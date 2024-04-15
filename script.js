@@ -126,13 +126,6 @@ async function initMap() {
             'data-color': 'red'
         },
         {
-            locationName: 'First Presbyterian Church Student Center',
-            lat: 35.046412924196716,
-            lng: -85.30235148030614,
-            address: '535 McCallie Ave, Chattanooga, TN',
-            'data-color': 'red'
-        },
-        {
             locationName: 'Renaissance Presbyterian Church',
             lat: 35.043162300619656, 
             lng: -85.31938207096209,
@@ -174,6 +167,49 @@ async function initMap() {
             address: '2099 E Main St, Chattanooga, TN',
             'data-color': 'red'
         },
+        {
+            locationName: 'New City Fellowship',
+            lat: 35.037115535004254,
+            lng:  -85.2634246392928,
+            address: '2424 E 3rd St, Chattanooga, TN',
+            'data-color': 'red'
+        },
+        {
+            locationName: 'North Shore Fellowship',
+            lat: 35.06341632203384,
+            lng:  -85.30747767535674,
+            address: '118 Woodland Ave, Chattanooga, TN',
+            'data-color': 'red'
+        },
+        {
+            locationName: 'North Shore Fellowship',
+            lat: 35.06341632203384,
+            lng:  -85.30747767535674,
+            address: '118 Woodland Ave, Chattanooga, TN',
+            'data-color': 'red'
+        },
+        {
+            locationName: 'North Chattanooga Church of God',
+            lat: 35.067115414315715,
+            lng:  -85.30921335821486,
+            address: 'Chattanooga, TN 37405',
+            'data-color': 'red'
+        },
+        {
+            locationName: 'Alton Park Church of Christ',
+            lat: 35.008406598907676,
+            lng: -85.31817270059122,
+            address: 'Chattanooga, TN 37410',
+            'data-color': 'red'
+        },
+        {
+            locationName: 'Tiftonia Baptist Church',
+            lat: 35.03815730251034,
+            lng: -85.35881467560664,
+            address: '518 Browns Ferry Rd, Chattanooga, TN',
+            'data-color': 'red'
+        },
+
     ];
     
     // ARRAY of UNKNOWN MARKERS
@@ -204,6 +240,230 @@ async function initMap() {
             lat: 35.0274092850168,
             lng: -85.31552972396813,
             address: '2512 Cowart St, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'St Ruth Primitive Baptist Church',
+            lat: 35.0533283303729,
+            lng: -85.26997466243449,
+            address: '1222 Sholar Ave, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'New Sholar Avenue Baptist Church',
+            lat: 35.05790078263583,
+            lng: -85.26746769771403,
+            address: '1600 Sholar Ave, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'Christ Hope Mssnry Baptist Church',
+            lat: 35.054189041837176,
+            lng: -85.2693523899627,
+            address: '1701 Wilson St, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'Second Baptist Church',
+            lat: 335.02744117220402,
+            lng: -85.28296122342331,
+            address: '1619 E Main St, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'First Church of the Nazarene',
+            lat: 35.02527523198393,
+            lng: -85.27736826372808,
+            address: '2099 E Main St, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'First Missionary Baptist Church',
+            lat: 35.0526847243633,
+            lng: -85.2607144010546,
+            address: '2203 Wilcox Blvd, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'Faith United Baptist Church',
+            lat: 35.0224183020442,
+            lng: -85.27942133956782,
+            address: 'Chattanooga, TN 37404',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'Restoration Vineyard Church',
+            lat: 35.02211427774697,
+            lng: -85.28088946198476,
+            address: '1814 S Beech St, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'St Paul Ame Church',
+            lat: 35.02732749800158,
+            lng: -85.31435712574664,
+            address: '2514 Williams St, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'St. Phillip Lutheran Church',
+            lat: 35.02725546737627,
+            lng: -85.31256020980875,
+            address: '51 W 25th St, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'First Calvary Baptist Church',
+            lat: 35.06838815955168,
+            lng: -85.31208950194028,
+            address: '300 W Bell Ave, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'Galilee Baptist Church',
+            lat: 35.044140739049354,
+            lng: -85.26842869720512,
+            address: '2000 Jackson St, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'Bethel A.M.E. Church',
+            lat: 35.044623681708075,
+            lng: -85.26807170334926,
+            address: '2000 Walker Ave, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'Community Missionary Baptist Church',
+            lat: 35.04268657622213,
+            lng: -85.29529315189572,
+            address: '1001 E 8th St, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'New Zion Baptist Church',
+            lat:35.04180006737461,
+            lng: -85.29526008764059,
+            address: '2000 Walker Ave, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'Greater Friendship Missionary Baptist Church',
+            lat: 35.03995491016534,
+            lng: -85.2950366783629,
+            address: '914 Park Ave, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'Olivet Baptist Church',
+            lat: 35.04137153310665,
+            lng: -85.29874305764102,
+            address: '740 E M L King Blvd, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'First Christian Church',
+            lat: 35.044857591313004,
+            lng: -85.29992222786814,
+            address: '650 McCallie Ave, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'First Church of Christ, Scientist',
+            lat: 35.04558566190455,
+            lng: -85.30105948829903,
+            address: '612 McCallie Ave, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'First Baptist Church',
+            lat: 35.04539421652403,
+            lng: -85.30304013547251,
+            address: '506 E 8th St, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'First-Centenary United Methodist Church',
+            lat: 35.04727818815724,
+            lng: -85.3042432400353,
+            address: '419 McCallie Ave, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'Resurrection Chattanooga',
+            lat: 35.032022179047786,
+            lng: -85.30340073921656,
+            address: '1800 Rossville Ave, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'Resurrected Baptist Church',
+            lat: 35.02065151941617,
+            lng: -85.27622465775565,
+            address: '2230 E 18th St, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'Northside Presbyterian Church',
+            lat: 35.06924778020444,
+            lng: -85.29503880702552,
+            address: '923 Mississippi Ave, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'RiverChurch Chattanooga',
+            lat: 35.04860995931669,
+            lng: -85.30890900415018,
+            address: '9 E 7th St, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'Northside Church of Christ',
+            lat: 35.046848336944436,
+            lng: -85.30730564028225,
+            address: 'Chattanooga, TN 37402',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'Greater Faith Temple Missionary',
+            lat: 35.04093572621831,
+            lng: -85.29912574807723,
+            address: '652 E 10th St, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'Fairview Baptist Church',
+            lat: 35.04791716076146,
+            lng:  -85.28532490265991,
+            address: 'Chattanooga, TN 37403',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'East 3rd Church of Christ',
+            lat: 35.03999406581258,
+            lng: -85.26999566748803,
+            address: '2008 E 3rd St, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'Thankful Missionary Baptist Church',
+            lat: 35.04910871630406,
+            lng: -85.2669595091176,
+            address: '980 N Orchard Knob Ave, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'Orchard Park Seventh-day Adventist Church',
+            lat: 35.04917456030692,
+            lng: -85.26824050511568,
+            address: '951 N Orchard Knob Ave, Chattanooga, TN',
+            'data-color': 'yellow'
+        },
+        {
+            locationName: 'Tremont Baptist Church',
+            lat: 35.06299250100543,
+            lng: -85.30318171724656,
+            address: '214 Tremont St, Chattanooga, TN',
             'data-color': 'yellow'
         },
         
