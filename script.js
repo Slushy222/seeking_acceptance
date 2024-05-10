@@ -209,6 +209,27 @@ async function initMap() {
             address: '518 Browns Ferry Rd, Chattanooga, TN',
             'data-color': 'red'
         },
+        {
+            locationName: 'East 3rd Church of Christ',
+            lat: 35.039996503704664,
+            lng: -85.26999021254785,
+            address: '2008 E 3rd St, Chattanooga, TN',
+            'data-color': 'red'
+        },
+        {
+            locationName: 'Harmony Baptist Church Of Adams',
+            lat: 36.53187758657233,
+            lng: -87.11528893007485,
+            address: '4303 Harmony Church Rd, Adams, TN 37010, USA',
+            'data-color': 'red'
+        },
+        {
+            locationName: '301 Lippencott St',
+            lat: 35.949727066293136,
+            lng: -83.90629081403046,
+            address: '301 Lippencott St, Knoxville, TN 37920',
+            'data-color': 'red'
+        },
 
     ];
     
@@ -702,14 +723,6 @@ async function initMap() {
     
     
 
-
-    // COLORBLIND CHANGES
-    // function changeSVGColors(markerSVG, color) {
-    //     var svg = markerSVG.url.split('fill="')[0] + 'fill="' + color + '" />';
-    //     markerSVG.url = 'data:image/svg+xml;utf-8, ' + encodeURIComponent(svg);
-    // }
-
-
     //VISIBILITY SELECTOR
     var tabs = document.querySelector('.visibleTabs');
     var tabs2 = document.querySelector('.visibleTabs2');
@@ -718,8 +731,6 @@ async function initMap() {
     var selector2 = document.querySelector('.visibleSelector2');
     var selector3 = document.querySelector('.visibleSelector3');
 
-    // var tabs4 = document.querySelector('.blindTabs');
-    // var selector4 = document.querySelector('.blindSelector');
     
     
     var colors = {
@@ -762,14 +773,6 @@ async function initMap() {
         selector3.style.backgroundColor = tabColor3; // Apply the color
     }
 
-    // function updateSelector4(activeTab4) {
-    //     var activeWidth4 = activeTab4.offsetWidth;
-    //     var itemPos4 = activeTab4.offsetLeft;
-    //     var tabColor4 = colors[activeTab4.id]; // Get the color based on the active tab's ID
-    //     selector4.style.left = itemPos4 + 'px';
-    //     selector4.style.width = activeWidth4 + 'px';
-    //     selector4.style.backgroundColor = tabColor4; // Apply the color
-    // }
 
 
     // Function to remove the active state
@@ -797,13 +800,6 @@ async function initMap() {
 
     }
 
-    // function removeActiveState4() {
-    //     tabs4.querySelectorAll('a').forEach(function(tab) {
-    //       tab.classList.remove('active');
-    //     });
-    //     selector4.style.width = '0px'; // Hide the selector
-
-    // }
 
     tabs.addEventListener('click', function(e) {
         var target = e.target;
@@ -841,17 +837,6 @@ async function initMap() {
         }
     });
 
-    // tabs4.addEventListener('click', function(e) {
-    //     var target4 = e.target;
-    //     if (target4.tagName === 'A') {
-    //         e.preventDefault();
-    //         removeActiveState4(); // Remove active state from all tabs
-    //         target4.classList.add('active'); // Add active state to clicked tab
-    //         updateSelector4(target4);
-    //         // Call the appropriate handleTabSwitch function based on the clicked tab
-    //         handleTabSwitch4();
-    //     }
-    // });
     
     var indexNav = document.querySelector('#indexNav');
     var toolsNav = document.querySelector('#toolsNav')
@@ -862,21 +847,14 @@ async function initMap() {
     var notVisibleTab2 = document.getElementById("notVisibleTab2");
     var visibleTab3 = document.getElementById("visibleTab3");
     var notVisibleTab3 = document.getElementById("notVisibleTab3");
-
-    // var onTab = document.getElementById("onTab");
-    // var offTab = document.getElementById("offTab");
     
     visibleTab.classList.add('active');
     visibleTab2.classList.add('active');
     visibleTab3.classList.add('active');
 
-    // offTab.classList.add('active');
-
     updateSelector(visibleTab);
     updateSelector2(visibleTab2);
     updateSelector3(visibleTab3);
-    // updateSelector4(onTab);
-
 
     function handleTabSwitch() {
         acceptMarkerPush.forEach(marker1 => {
@@ -908,32 +886,15 @@ async function initMap() {
         });
     }
 
-
-    //colorblind setting
-    // function handleTabSwitch4() {
-    //     if (onTab.classList.contains('active')) {
-    //         changeSVGColors(acceptMarkerSVG,'#2D869C');
-    //         changeSVGColors(unknownMarkerSVG,'#C7A317');
-    //         changeSVGColors(notAcceptMarkerSVG,'#D56F3E');
-    //         console.log("colorChanged!");
-    //     } else if (offTab.classList.contains('active')) {
-    //         changeSVGColors(acceptMarkerSVG,'#29b895');
-    //         changeSVGColors(unknownMarkerSVG,'#ebce45');
-    //         changeSVGColors(notAcceptMarkerSVG,'#de4b36');
-    //     }
-    // }
-
     toolsNav.addEventListener('click', function() {
         if (visibleTab.classList.contains('active') && visibleTab2.classList.contains('active') && visibleTab3.classList.contains('active'))  {
             updateSelector(visibleTab);
             updateSelector2(visibleTab2);
             updateSelector3(visibleTab3);
-            // updateSelector4(offTab);
         }
         handleTabSwitch();
         handleTabSwitch2();
         handleTabSwitch3();
-        // handleTabSwitch4();
     });
 
     indexNav.addEventListener('click', function() {
@@ -946,7 +907,6 @@ async function initMap() {
         handleTabSwitch();
         handleTabSwitch2();
         handleTabSwitch3();
-        // handleTabSwitch4();
 
         updateSelector(visibleTab);
         updateSelector2(visibleTab2);
@@ -956,7 +916,6 @@ async function initMap() {
     handleTabSwitch();
     handleTabSwitch2();
     handleTabSwitch3();
-    // handleTabSwitch4();
 }
 initMap();
 
