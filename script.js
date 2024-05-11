@@ -566,6 +566,11 @@ async function initMap() {
                 infoWindow.setContent(acceptInfo);
                 infoWindow.open(map, marker1);
             });
+            google.maps.event.addListener(map, 'click', function() {
+                if (infoWindow) {
+                    infoWindow.close(map, marker1);
+                }
+            });
         })(marker1, i);
         acceptMarkerPush.push(marker1);
     }
@@ -594,6 +599,11 @@ async function initMap() {
             google.maps.event.addListener(marker2, 'click', function() {
                 infoWindow.setContent(notAcceptInfo);
                 infoWindow.open(map, marker2);
+            });
+            google.maps.event.addListener(map, 'click', function() {
+                if (infoWindow) {
+                    infoWindow.close(map, marker2);
+                }
             });
         })(marker2, i);
         notAcceptMarkerPush.push(marker2);
@@ -624,42 +634,73 @@ async function initMap() {
                 infoWindow.setContent(unknownInfo);
                 infoWindow.open(map, marker3);
             });
+            google.maps.event.addListener(map, 'click', function() {
+                if (infoWindow) {
+                    infoWindow.close(map, marker3);
+                }
+            });
         })(marker3, i);
         unknownMarkerPush.push(marker3);
     }
     
    
-    // DEPLOYED INDEX
-    const appendDivs = (markers, className, containerId, map) => {
+    const clearContainer = (containerId) => {
         const container = document.getElementById(containerId);
-        
-
+        while (container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
+    };
+    
+    // Modified appendDivs function to include bounds check
+    const appendDivs = (markers, className, containerId, map) => {
+        clearContainer(containerId); // Clear previous content
+        const container = document.getElementById(containerId);
+        const bounds = map.getBounds();
+    
         markers.forEach(marker => {
-            let markerDiv = document.createElement('div');
-            markerDiv.className = className;
-            markerDiv.innerHTML = `
-                <h3>${marker.locationName}</h3>
-                <address><p><i>${marker.address}</i></p></address>
-            `;
-
-            markerDiv.style.cursor = 'pointer';
-
-            markerDiv.addEventListener('click', () => {
-                map.panTo(new google.maps.LatLng(marker.lat, marker.lng));
-                map.setZoom(17);
-            });
-            container.appendChild(markerDiv);
+            if (bounds.contains(new google.maps.LatLng(marker.lat, marker.lng))) {
+                let markerDiv = document.createElement('div');
+                markerDiv.className = className;
+                markerDiv.innerHTML = `
+                    <h3>${marker.locationName}</h3>
+                    <address><p><i>${marker.address}</i></p></address>
+                `;
+    
+                markerDiv.style.cursor = 'pointer';
+    
+                markerDiv.addEventListener('click', () => {
+                    map.panTo(new google.maps.LatLng(marker.lat, marker.lng));
+                    map.setZoom(17);
+                });
+                container.appendChild(markerDiv);
+            }
         });
     };
+    
+    // Event listener for bounds_changed event
+    google.maps.event.addListener(map, 'bounds_changed', () => {
+        appendMarkersToContainers(acceptMarkers, notAcceptMarkers, unknownMarkers, map);
+    });
 
-    // Function to append markers to their respective containers
+    const sortMarkersByLocation = (markers) => {
+        return markers.sort((a, b) => {
+            if (a.lat === b.lat) {
+                return a.lng - b.lng; // Sort by longitude if latitudes are equal
+            }
+            return a.lat - b.lat; // Otherwise, sort by latitude
+        });
+    };
+    
+    // Modified appendMarkersToContainers function to include sorting
     function appendMarkersToContainers(acceptMarkers, notAcceptMarkers, unknownMarkers, map) {
-        appendDivs(acceptMarkers, 'accept-marker', 'indexContainerAccept', map);
-        appendDivs(notAcceptMarkers, 'not-accept-marker', 'indexContainerNotAccept', map);
-        appendDivs(unknownMarkers, 'unknown-marker', 'indexContainerUnknown', map);
+        const sortedAcceptMarkers = sortMarkersByLocation(acceptMarkers);
+        const sortedNotAcceptMarkers = sortMarkersByLocation(notAcceptMarkers);
+        const sortedUnknownMarkers = sortMarkersByLocation(unknownMarkers);
+    
+        appendDivs(sortedAcceptMarkers, 'accept-marker', 'indexContainerAccept', map);
+        appendDivs(sortedNotAcceptMarkers, 'not-accept-marker', 'indexContainerNotAccept', map);
+        appendDivs(sortedUnknownMarkers, 'unknown-marker', 'indexContainerUnknown', map);
     }
-
-    appendMarkersToContainers(acceptMarkers, notAcceptMarkers, unknownMarkers, map);
 
 
 
