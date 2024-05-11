@@ -753,6 +753,12 @@ async function initMap() {
         google.maps.event.addListener(marker, 'click', function() {
             infoWindow2.open(map, marker);
         });
+        
+        google.maps.event.addListener(map, 'click', function() {
+            if (infoWindow) {
+                infoWindow2.close(map, marker);
+            }
+        });
     
         updateInfoWindow(content, place.location);
 
