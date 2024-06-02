@@ -216,6 +216,11 @@ a:visited {
   transition: all 0.25s ease 0s;
 }
 
+#myEmail:hover {
+  color: #29b895;
+  transition: all 0.25s ease 0s;
+}
+
 /* ADDING MARKER TAB CONTENT */
 .tabs, .indexTabs, .visibleTabs, .visibleTabs2, .visibleTabs3 {
   cursor: pointer;
@@ -406,6 +411,12 @@ a:visited {
 #indexContainerAccept p, #indexContainerUnknown p, #indexContainerNotAccept p {
   font-size: 14px;
   margin-top: 8px;
+}
+
+#indexContainerAccept .noMarkers p, #indexContainerUnknown .noMarkers p, #indexContainerNotAccept .noMarkers p {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 0px;
 }
 
 

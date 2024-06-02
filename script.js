@@ -656,9 +656,11 @@ async function initMap() {
         clearContainer(containerId); // Clear previous content
         const container = document.getElementById(containerId);
         const bounds = map.getBounds();
+        let markersWithinBounds = false;
     
         markers.forEach(marker => {
             if (bounds.contains(new google.maps.LatLng(marker.lat, marker.lng))) {
+                markersWithinBounds = true;
                 let markerDiv = document.createElement('div');
                 markerDiv.className = className;
                 markerDiv.innerHTML = `
@@ -675,6 +677,12 @@ async function initMap() {
                 container.appendChild(markerDiv);
             }
         });
+        if (!markersWithinBounds) {
+            let noMarkersDiv = document.createElement('div');
+            noMarkersDiv.className = 'noMarkers';
+            noMarkersDiv.innerHTML = `<p>There are no markers of this type within view.</p>`;
+            container.appendChild(noMarkersDiv);
+        }
     };
     
     // Event listener for bounds_changed event
