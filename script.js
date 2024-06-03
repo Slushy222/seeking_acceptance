@@ -512,21 +512,18 @@ async function initMap() {
     });
 
     var acceptMarkerSVG = {
-        url: "data:image/svg+xml,%3C?xml%20version='1.0'%20encoding='UTF-8'?%3E%3Csvg%20id='accept'%20data-name='Layer%201'%20xmlns='http%3A//www.w3.org/2000/svg'%20viewBox='0%200%2020%2032'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%20%7B%20fill%3A%20%2329b895%3B%20stroke-width%3A%200px%3B%20%7D%3C/style%3E%3C/defs%3E%3Cpolygon%20class='cls-1'%20points='0%201.34%200%2021.34%205.39%2030.66%2010.77%2021.34%2020%2021.34%2020%201.34%200%201.34'/%3E%3C/svg%3E",
+        url: "./markersvg/acceptMarker.svg",
         scaledSize: new google.maps.Size(35, 35),
-        fill: '#29b895'
     };
 
     var notAcceptMarkerSVG = {
-        url: "data:image/svg+xml,%3C?xml%20version='1.0'%20encoding='UTF-8'?%3E%3Csvg%20id='notAccept'%20data-name='Layer%201'%20xmlns='http%3A//www.w3.org/2000/svg'%20viewBox='0%200%2020%2032'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%20%7B%20fill%3A%20%23de4b36%3B%20stroke-width%3A%200px%3B%20%7D%3C/style%3E%3C/defs%3E%3Cpolygon%20class='cls-1'%20points='0%201.34%200%2021.34%205.39%2030.66%2010.77%2021.34%2020%2021.34%2020%201.34%200%201.34'/%3E%3C/svg%3E",
+        url: "./markersvg/notAcceptMarker.svg",
         scaledSize: new google.maps.Size(35, 35),
-        fill: '#de4b36'
     };
 
     var unknownMarkerSVG = {
-        url: "data:image/svg+xml,%3C?xml%20version='1.0'%20encoding='UTF-8'?%3E%3Csvg%20id='unknown'%20data-name='Layer%201'%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2020%2032'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%20%7B%20fill%3A%20%23ebce45%3B%20stroke-width%3A%200px%3B%20%7D%3C/style%3E%3C/defs%3E%3Cpolygon%20class='cls-1'%20points='0%201.34%200%2021.34%205.39%2030.66%2010.77%2021.34%2020%2021.34%2020%201.34%200%201.34'/%3E%3C/svg%3E",
+        url: "./markersvg/unknownMarker.svg",
         scaledSize: new google.maps.Size(35, 35),
-        fill: '#ebce45'
     };
 
     const addingMarkerSVG = {
