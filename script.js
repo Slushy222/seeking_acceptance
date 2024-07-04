@@ -4,11 +4,14 @@ var emailData;
 var displayNameData;
 var addressData;
 var statusData;
+var expData;
+
 let marker;
 var emailParams;
 let marker1;
 let marker2;
 let marker3;
+let txtExp
 
 
 var acceptMarkerPush = [];
@@ -1170,6 +1173,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
   
 
+window.onload = function() {
+    txtExp = document.querySelector('textarea');
+    txtExp.addEventListener('keydown', function() {
+    console.log(txtExp.value);
+});
+}
+
+
+
 emailjs.init({
     publicKey: 'ooOg8rsFbl3_YJ1mC',
 });
@@ -1185,31 +1197,32 @@ function sendMarkerMail() {
         submitButton.textContent = "fill in required fields";
         setTimeout(function() {
             submitButton.textContent = "submit";
-        }, 3000);
+        }, 6000);
         return;
     }
 
     emailParams = {
         displayNameData: markerData.displayName,
         addressData: markerData.address,
-        statusData: emailData.activeTab
+        statusData: emailData.activeTab,
+        expData: txtExp.value
     };
     
     if (emailParams.displayNameData && emailParams.addressData && emailParams.statusData) {
         emailParams = {
             displayNameData: markerData.displayName,
             addressData: markerData.address,
-            statusData: emailData.activeTab
+            statusData: emailData.activeTab,
+            expData: txtExp.value
         };
         emailjs.send("service_zu4mkqd", "template_gn5qxu9", emailParams)
         .then(function(response) {
             console.log('SUCCESS!', response.status, response.text);
             submitButton.textContent = "submitted!";
-
             // Reset the button text back to 'Send' after 1 second
             setTimeout(function() {
                 submitButton.textContent = "submit";
-            }, 3000);
+            }, 6000);
         }, function(error) {
             console.log('FAILED...', error);
         });

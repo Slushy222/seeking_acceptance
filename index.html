@@ -1,4 +1,16 @@
 <!DOCTYPE html>
+
+<!-- 
+_-_-            ,, ,,       /\ 
+  /,            || ||       \/ 
+  || __    _-_  || ||  /'\\ }{ 
+ ~||-  -  || \\ || || || || \/ 
+  ||===|| ||/   || || || ||    
+ ( \_, |  \\,/  \\ \\ \\,/  <> 
+
+Looking for the code? Please visit my GitHub for a more detailed look at https://github.com/Slushy222/seeking_acceptance 
+-->
+
 <html>
     <head>
         <meta charset="UTF-8"/>
@@ -79,7 +91,7 @@
                     </section>
 
                     <section id="addContent">
-                        <ul id="formInstructions">
+                        <ul class="formInstructions">
                             <li>
                                 <p>1. Search for a Church or Religious Institution.</p>
                                 <div id="locationField"></div>
@@ -95,6 +107,17 @@
                             <a id= "unknownTab">unknown</a>
                             <a id= "notAcceptTab">not accepting</a>
                         </nav>
+
+                        <ul class="formInstructions">
+                            <li>
+                                <p>3. Share any details of your experience. &#40;Optional&#41;</p>
+                            </li>
+                        </ul>
+
+                        <form>
+                            <textarea id="addingMarkerTextArea" type="text" placeholder= "What bothered you? Did you feel safe? Was the experience good?"></textarea>
+                        </form>
+
 
                         <button id="submitButton" type="submit" onclick="sendMarkerMail()">submit</button>
                     </section>

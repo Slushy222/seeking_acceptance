@@ -281,12 +281,12 @@ a:visited {
   background: transparent;
 }
 
-#formInstructions {
+.formInstructions {
   display: flex;
   flex-direction: column;
 }
 
-#formInstructions li {
+.formInstructions li {
   margin-bottom: 10px;
 }
 
@@ -300,12 +300,26 @@ a:visited {
   border-color: transparent;
 }
 
-#formInstructions ul {
+.formInstructions ul {
   width: 600px;
 }
 
+
+textarea {
+  font-family: Helvetica, sans-serif;
+  background-color: white;
+  box-shadow:0px 5px 20px rgba(0,0,0,0.1);
+  padding: 12px 20px;
+  border: none;
+  width: 100%;
+  height: 150px;
+  resize: none;
+  margin-bottom: 40px;
+}
+
+
 #submitButton {
-  background-color: white; /* Green background */
+  background-color: white;
   border: none; /* No border */
   font-family: Helvetica, sans-serif;
   padding: 15px 32px; /* Padding around the text */
@@ -321,7 +335,7 @@ a:visited {
 }
 
 #locationField .pac-icon {
-  background-image: url('./markersvg/mastheadIcon.svg') !important; /* Replace with your icon's path */
+  background-image: url('./markersvg/mastheadIcon.svg') !important; 
   background-size: contain !important;
   background-repeat: no-repeat !important;
   width: 24px !important; /* Adjust size as needed */
