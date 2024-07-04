@@ -333,6 +333,7 @@ textarea {
   border-radius: 50px; /* Rounded corners */
   font-weight: 600;
   z-index: 999;
+  color: black;
 }
 
 #locationField .pac-icon {
