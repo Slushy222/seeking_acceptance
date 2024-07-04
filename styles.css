@@ -560,7 +560,7 @@ textarea {
     height: auto;
   }
 
-  #submitButton {
+  #submitButton p {
     font-size: 14px; 
   }
 
