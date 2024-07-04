@@ -170,8 +170,3 @@ function checkActiveNav() {
         isNavClosed();
     }
 }
-
-
-function changeColorBlindColors() {
-    // lol code this taylor
-}

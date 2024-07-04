@@ -522,7 +522,12 @@ textarea {
     font-size: 14px;
   }
 
-  #indexContainerAccept p, #indexContainerUnknown p, #indexContainerNotAccept p {
+  #indexContainerAccept p, #indexContainerUnknown p, #indexContainerNotAccept p{
+    font-size: 12px;
+    margin-top: 8px;
+  }
+
+  #indexContainerAccept .noMarkers p, #indexContainerUnknown .noMarkers p, #indexContainerNotAccept .noMarkers p {
     font-size: 12px;
     margin-top: 8px;
   }
@@ -662,7 +667,7 @@ textarea {
   }
 
   #masthead {
-    margin-top: 40px;
+    margin-top: 35px;
     margin-left: 90px;
     width: 70vw;
   }
@@ -681,8 +686,13 @@ textarea {
     margin: 20px;
   }
 
-  #indexContainerAccept p, #indexContainerUnknown p, #indexContainerNotAccept p {
+  #indexContainerAccept p, #indexContainerUnknown p, #indexContainerNotAccept p, .noMarkers p {
     font-size: 12px;
+    margin-top: 8px;
+  }
+
+  #indexContainerAccept .noMarkers p, #indexContainerUnknown .noMarkers p, #indexContainerNotAccept .noMarkers p {
+    font-size: 14px;
     margin-top: 8px;
   }
 
@@ -713,7 +723,7 @@ textarea {
   }
 
   #submitButton {
-    font-size: 12px; 
+    font-size: 14px; 
   }
 
   #tools h3 {
@@ -723,7 +733,7 @@ textarea {
   
   .hamburgerMenu {
     position: fixed;
-    padding-top: 40px;
+    padding-top: 30px;
     padding-left: 20px;
     z-index: 900;
   }
@@ -766,6 +776,7 @@ textarea {
     font-size: 10px;
   }
 
+
   #indexContainerAccept, #indexContainerUnknown, #indexContainerNotAccept {
     width: auto;
     height: auto;
@@ -785,9 +796,9 @@ textarea {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    height: 20px;
+    height: 40px;
     outline: none;
-    width: 20px;
+    width: 40px;
       
     &.toggled {
       #icon {
