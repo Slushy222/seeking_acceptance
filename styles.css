@@ -724,7 +724,8 @@ textarea {
   }
 
   #submitButton {
-    font-size: 14px; 
+    font-size: 14px;
+    color: black; 
   }
 
   #tools h3 {
