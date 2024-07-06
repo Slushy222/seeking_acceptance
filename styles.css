@@ -719,6 +719,11 @@ textarea {
     padding-top: 100px;
   }
 
+  #legendAccept, #legendNotAccept, #legendUnknown {
+    width: 5%;
+    height: auto;
+  }
+
   #indexContainer {
     width: auto;
     height: auto;
