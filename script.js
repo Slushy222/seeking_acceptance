@@ -289,7 +289,7 @@ async function initMap() {
         },
         {
             locationName: 'Second Baptist Church',
-            lat: 335.02744117220402,
+            lat: 35.02744117220402,
             lng: -85.28296122342331,
             address: '1619 E Main St, Chattanooga, TN',
             'data-color': 'yellow'
