@@ -247,6 +247,22 @@ async function initMap() {
             address: '1316 Huffines Ridge Dr, Franklin, TN',
             'data-color': 'red'
         },
+        {
+          locationName: 'Spring Hill Church of Christ',
+          lat: 35.74913766184769,
+          lng: -86.93261830958734,
+          address: '5351 Main St, Spring Hill, TN',
+          'data-color': 'red'
+        },
+        {
+          locationName: 'Southern Hills Church of Christ',
+          lat: 35.85728624649356,
+          lng: -86.8588361750839,
+          address: '2508 Goose Creek Bypass, Franklin, TN',
+          'data-color': 'red'
+        },
+        
+      
 
     ];
     
