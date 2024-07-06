@@ -139,7 +139,7 @@ async function initMap() {
             locationName: 'Second Presbyterian Church of Chattanooga',
             lat: 35.04812419063135,
             lng: -85.31244628248216,
-            address: '700 Pine St, Chattanooga, TN 37402',
+            address: '700 Pine St, Chattanooga, TN',
             'data-color': 'red'
         },
         {
@@ -237,14 +237,14 @@ async function initMap() {
             locationName: 'Holy Trinity Catholic Parish',
             lat: 41.671319036185835,
             lng: -83.90982142465941,
-            address: '2649 US-20, Swanton, OH 43558',
+            address: '2649 US-20, Swanton, OH',
             'data-color': 'red'
         },
         {
             locationName: 'LifeChange Franklin',
             lat: 35.927640933891375,
             lng: -86.81979860254734,
-            address: '1316 Huffines Ridge Dr, Franklin, TN 37067',
+            address: '1316 Huffines Ridge Dr, Franklin, TN',
             'data-color': 'red'
         },
 
