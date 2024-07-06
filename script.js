@@ -233,6 +233,20 @@ async function initMap() {
             address: '301 Lippencott St, Knoxville, TN',
             'data-color': 'red'
         },
+        {
+            locationName: 'Holy Trinity Catholic Parish',
+            lat: 41.671319036185835,
+            lng: -83.90982142465941,
+            address: '2649 US-20, Swanton, OH 43558',
+            'data-color': 'red'
+        },
+        {
+            locationName: 'LifeChange Franklin',
+            lat: 35.927640933891375,
+            lng: -86.81979860254734,
+            address: '1316 Huffines Ridge Dr, Franklin, TN 37067',
+            'data-color': 'red'
+        },
 
     ];
     
