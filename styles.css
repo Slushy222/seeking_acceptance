@@ -720,8 +720,9 @@ textarea {
   }
 
   #legendAccept, #legendNotAccept, #legendUnknown {
-    width: 5%;
+    width: 4%;
     height: auto;
+    margin-top: 2px;
   }
 
   #indexContainer {
