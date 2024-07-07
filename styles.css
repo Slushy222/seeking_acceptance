@@ -699,13 +699,13 @@ textarea {
   }
 
   .visibleTabs, .visibleTabs2, .visibleTabs3 {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   #visibilitySelectors p {
     display: flex;
     font-family: Helvetica, sans-serif;
-    font-size: 10px;
+    font-size: 12px;
     width: auto;
     padding-left: 10px;
     padding-top: 10px;
