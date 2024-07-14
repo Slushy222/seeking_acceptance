@@ -221,6 +221,30 @@ a:visited {
   transition: all 0.25s ease 0s;
 }
 
+#mySite {
+  position: relative;
+}
+
+#mySite::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #29b895;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .25s ease-in-out;
+}
+
+#mySite:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+
 /* ADDING MARKER TAB CONTENT */
 .tabs, .indexTabs, .visibleTabs, .visibleTabs2, .visibleTabs3 {
   cursor: pointer;
