@@ -37,8 +37,8 @@ setTimeout(() => {
   
   // Set another timeout to add the 'hidden' class after the moveUpAndHide animation completes
   setTimeout(() => {
-    splash.classList.add('hidden');
-  }, 1000); // This should match the duration of the moveUpAndHide animation
+    splash.style.display = 'none';
+  }, 1200); // This should match the duration of the moveUpAndHide animation
 }, totalWaveAnimationDuration * 1200);
 
 // On HAMBURGER Nav Click
