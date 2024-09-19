@@ -541,6 +541,10 @@ textarea {
     width: 40vw;
   }
 
+  #masthead h1 {
+    margin-top: 10px;
+  }
+
   #mastheadIcon {
     width: 5%;
     margin-top: 7px;
