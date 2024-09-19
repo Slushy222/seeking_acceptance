@@ -634,9 +634,9 @@ textarea {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    height: 30px;
+    height: 50px;
     outline: none;
-    width: 30px;
+    width: 50px;
     -webkit-appearance: none; /* Added for Safari */
     appearance: none;
       
