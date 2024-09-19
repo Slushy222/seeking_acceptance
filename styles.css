@@ -480,6 +480,8 @@ textarea {
   height: 50px;
   outline: none;
   width: 50px;
+  -webkit-appearance: none; /* Added for Safari */
+  appearance: none;
     
   &.toggled {
     #icon {
@@ -635,6 +637,8 @@ textarea {
     height: 30px;
     outline: none;
     width: 30px;
+    -webkit-appearance: none; /* Added for Safari */
+    appearance: none;
       
     &.toggled {
       #icon {
@@ -832,6 +836,8 @@ textarea {
     height: 40px;
     outline: none;
     width: 40px;
+    -webkit-appearance: none; /* Added for Safari */
+    appearance: none;
       
     &.toggled {
       #icon {
