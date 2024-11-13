@@ -513,7 +513,7 @@ textarea {
 }
 
 /* LAURAS BIG ASS SCREEN */
-@media screen and (min-width: 2000px) and (max-width: 3024px) {
+@media screen and (min-width: 1024px) and (max-width: 3024px) {
   #aboutContent, #addContent, #toolsContent, #indexContent {
     margin-top: 130px;
     margin-left: 650px;
