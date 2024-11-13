@@ -360,21 +360,6 @@ textarea {
   color: black;
 }
 
-#locationField .pac-icon {
-  background-image: url('./markersvg/mastheadIcon.svg') !important; 
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
-  width: 24px !important; /* Adjust size as needed */
-  height: 24px !important; /* Adjust size as needed */
-}
-
-.pac-container {
-  min-width: 250px;
-  height: auto;
-  border: none;
-  outline: none;
-}
-
 #submitButton {
   display: flex;
 }
