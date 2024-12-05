@@ -101,6 +101,20 @@ async function initMap() {
             address: '309 Franklin Rd, Brentwood, TN',
             'data-color': 'green'
         },
+        {
+          locationName: 'The Church of the River (First Unitarian Church of Memphis)',
+          lat: 35.12711961177118,
+          lng: -90.07197042044972,
+          address: '292 Virginia Ave W, Memphis, TN',
+          'data-color': 'green'
+        },
+        {
+          locationName: 'First-Centenary United Methodist Church',
+          lat: 35.04727818815724,
+          lng: -85.3042432400353,
+          address: '419 McCallie Ave, Chattanooga, TN',
+          'data-color': 'green'
+      },
 
 
     ];
@@ -259,6 +273,20 @@ async function initMap() {
           lat: 35.85728624649356,
           lng: -86.8588361750839,
           address: '2508 Goose Creek Bypass, Franklin, TN',
+          'data-color': 'red'
+        },
+        {
+          locationName: 'St Edward Church',
+          lat: 36.11101206763716,
+          lng: -86.73957751065524,
+          address: '188 Thompson Ln, Nashville, TN',
+          'data-color': 'red'
+        },
+        {
+          locationName: 'Metro Tab Church',
+          lat: 35.04340595064496,
+          lng: -85.18545518487153,
+          address: '2101 Shepherd Rd, Chattanooga, TN',
           'data-color': 'red'
         },
         
@@ -434,13 +462,6 @@ async function initMap() {
             lat: 35.04539421652403,
             lng: -85.30304013547251,
             address: '506 E 8th St, Chattanooga, TN',
-            'data-color': 'yellow'
-        },
-        {
-            locationName: 'First-Centenary United Methodist Church',
-            lat: 35.04727818815724,
-            lng: -85.3042432400353,
-            address: '419 McCallie Ave, Chattanooga, TN',
             'data-color': 'yellow'
         },
         {
