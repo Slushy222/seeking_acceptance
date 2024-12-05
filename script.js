@@ -114,7 +114,7 @@ async function initMap() {
           lng: -85.3042432400353,
           address: '419 McCallie Ave, Chattanooga, TN',
           'data-color': 'green'
-      },
+        },
 
 
     ];
