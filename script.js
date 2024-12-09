@@ -115,6 +115,13 @@ async function initMap() {
           address: '419 McCallie Ave, Chattanooga, TN',
           'data-color': 'green'
         },
+        {
+          locationName: 'First Presbyterian Church, Johnson City',
+          lat: 36.31605276791466,
+          lng: -82.35513273126706,
+          address: '105 S Boone St, Johnson City, TN',
+          'data-color': 'green'
+        },
 
 
     ];
@@ -287,6 +294,20 @@ async function initMap() {
           lat: 35.04340595064496,
           lng: -85.18545518487153,
           address: '2101 Shepherd Rd, Chattanooga, TN',
+          'data-color': 'red'
+        },
+        {
+          locationName: 'Apison Seventh-day Adventist Church',
+          lat: 35.022615608617684,
+          lng: -85.01754434436062,
+          address: '11421 Bates Rd, Apison, TN',
+          'data-color': 'red'
+        },
+        {
+          locationName: 'Collegedale Seventh-day Adventist Church',
+          lat: 35.044790810732565,
+          lng: -85.05026158846175,
+          address: '4829 College Dr E, Collegedale, TN',
           'data-color': 'red'
         },
         
