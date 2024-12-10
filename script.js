@@ -310,6 +310,20 @@ async function initMap() {
           address: '4829 College Dr E, Collegedale, TN',
           'data-color': 'red'
         },
+        {
+          locationName: 'Calvary Chapel Chattanooga',
+          lat: 35.01571281542216,
+          lng: -85.32400106155809,
+          address: '3415 Broad St, Chattanooga, TN',
+          'data-color': 'red'
+        },
+        {
+          locationName: 'Harvest Deaf Ministries',
+          lat: 34.86113487587535,
+          lng: -85.2079688676972,
+          address: '1314 Old Three Notch Rd, Ringgold, GA',
+          'data-color': 'red'
+        },
         
       
 
