@@ -101,6 +101,27 @@ async function initMap() {
             address: '309 Franklin Rd, Brentwood, TN',
             'data-color': 'green'
         },
+        {
+          locationName: 'The Church of the River (First Unitarian Church of Memphis)',
+          lat: 35.12711961177118,
+          lng: -90.07197042044972,
+          address: '292 Virginia Ave W, Memphis, TN',
+          'data-color': 'green'
+        },
+        {
+          locationName: 'First-Centenary United Methodist Church',
+          lat: 35.04727818815724,
+          lng: -85.3042432400353,
+          address: '419 McCallie Ave, Chattanooga, TN',
+          'data-color': 'green'
+        },
+        {
+          locationName: 'First Presbyterian Church, Johnson City',
+          lat: 36.31605276791466,
+          lng: -82.35513273126706,
+          address: '105 S Boone St, Johnson City, TN',
+          'data-color': 'green'
+        },
 
 
     ];
@@ -259,6 +280,48 @@ async function initMap() {
           lat: 35.85728624649356,
           lng: -86.8588361750839,
           address: '2508 Goose Creek Bypass, Franklin, TN',
+          'data-color': 'red'
+        },
+        {
+          locationName: 'St Edward Church',
+          lat: 36.11101206763716,
+          lng: -86.73957751065524,
+          address: '188 Thompson Ln, Nashville, TN',
+          'data-color': 'red'
+        },
+        {
+          locationName: 'Metro Tab Church',
+          lat: 35.04340595064496,
+          lng: -85.18545518487153,
+          address: '2101 Shepherd Rd, Chattanooga, TN',
+          'data-color': 'red'
+        },
+        {
+          locationName: 'Apison Seventh-day Adventist Church',
+          lat: 35.022615608617684,
+          lng: -85.01754434436062,
+          address: '11421 Bates Rd, Apison, TN',
+          'data-color': 'red'
+        },
+        {
+          locationName: 'Collegedale Seventh-day Adventist Church',
+          lat: 35.044790810732565,
+          lng: -85.05026158846175,
+          address: '4829 College Dr E, Collegedale, TN',
+          'data-color': 'red'
+        },
+        {
+          locationName: 'Calvary Chapel Chattanooga',
+          lat: 35.01571281542216,
+          lng: -85.32400106155809,
+          address: '3415 Broad St, Chattanooga, TN',
+          'data-color': 'red'
+        },
+        {
+          locationName: 'Harvest Deaf Ministries',
+          lat: 34.86113487587535,
+          lng: -85.2079688676972,
+          address: '1314 Old Three Notch Rd, Ringgold, GA',
           'data-color': 'red'
         },
         
@@ -434,13 +497,6 @@ async function initMap() {
             lat: 35.04539421652403,
             lng: -85.30304013547251,
             address: '506 E 8th St, Chattanooga, TN',
-            'data-color': 'yellow'
-        },
-        {
-            locationName: 'First-Centenary United Methodist Church',
-            lat: 35.04727818815724,
-            lng: -85.3042432400353,
-            address: '419 McCallie Ave, Chattanooga, TN',
             'data-color': 'yellow'
         },
         {
